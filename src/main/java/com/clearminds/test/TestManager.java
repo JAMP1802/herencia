@@ -12,6 +12,7 @@ public class TestManager {
 			personaManager = new PersonaManager();
 			personaManager.insertarPersona(new Persona("Jonathan", 24, "jonathan@mail.com"));
 		} catch (InstanceException e) {
+			System.out.println("Error: " + e.getMessage());
 			e.printStackTrace();
 		}
 		
