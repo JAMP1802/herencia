@@ -1,5 +1,8 @@
 package com.clearminds.model;
 
+import java.io.FileReader;
+import java.util.Properties;
+
 import com.clearminds.excepciones.InstanceException;
 import com.clearminds.impl.ServicioPersonaArchivos;
 import com.clearminds.interfaces.ServicioPersona;
@@ -10,8 +13,12 @@ public class PersonaManager {
 	
 	
 	public PersonaManager() throws InstanceException {
+		Properties p = new Properties();
+		String valor = null;
 		try {
-			Class<?> clase = Class.forName("com.clearminds.impl.ServicioPersonaBDD");
+			p.load(new FileReader("config.properties"));
+			valor = p.getProperty("servicioPersona");
+			Class<?> clase = Class.forName(valor);
 			serv = (ServicioPersona) clase.newInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
