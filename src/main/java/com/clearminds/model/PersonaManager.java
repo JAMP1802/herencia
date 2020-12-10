@@ -1,5 +1,6 @@
 package com.clearminds.model;
 
+import com.clearminds.impl.ServicioPersonaArchivos;
 import com.clearminds.impl.ServicioPersonaBDD;
 import com.clearminds.interfaces.ServicioPersona;
 
@@ -12,6 +13,7 @@ public class PersonaManager {
 	}
 	
 	public void insertarPersona(Persona persona){
+		serv = new ServicioPersonaArchivos();
 		serv.insertar(persona);
 	}
 }
